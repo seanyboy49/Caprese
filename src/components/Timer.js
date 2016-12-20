@@ -1,5 +1,4 @@
-var React = require('react');
-
+import React from 'react';
 
 var Timer = React.createClass({
   getInitialState: function() {
@@ -93,4 +92,5 @@ var Timer = React.createClass({
     );
   }
 });
-module.exports = Timer
+
+export default Timer;
