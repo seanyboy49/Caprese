@@ -1,0 +1,31 @@
+.timer {
+  background-color: #CA0F08;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  text-align: center
+}
+
+.timer:hover{
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+/*.timer:active{
+  background-color: dodgerblue;
+}*/
+
+.timer-running {
+  background-color: #FA0F07;
+}
+
+.time-stopped {
+  background-color: #CA0F08;
+}
+
+.stopwatch-time {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 30%;
+  float: none;
+}
