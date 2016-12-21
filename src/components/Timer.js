@@ -15,9 +15,7 @@ class Timer extends React.Component {
     this.onStart = this.onStart.bind(this);
     this.onStop = this.onStop.bind(this);
     this.onReset = this.onReset.bind(this);
-    this.onFive = this.onFive.bind(this);
-    this.onTen = this.onTen.bind(this);
-    this.onFifteen = this.onFifteen.bind(this);
+    this.handleTimeChange = this.handleTimeChange.bind(this);
   }
 
   componentDidMount() {
@@ -28,22 +26,11 @@ class Timer extends React.Component {
     clearInterval(this.interval);
   }
 
-  onFifteen() {
+  handleTimeChange(e) {
+    const minutes = e.target.innerHTML
+    const milliseconds = minutes * 60000
     this.setState({
-      timeRemaining: 900000
-    })
-  }
-
-  onTen() {
-    console.log(this)
-    this.setState({
-      timeRemaining: 600000
-    })
-  }
-
-  onFive() {
-    this.setState({
-      timeRemaining: 300000
+      timeRemaining: milliseconds
     })
   }
 
@@ -100,9 +87,9 @@ class Timer extends React.Component {
           </div>
         }
         <button onClick={this.onReset}>Reset</button>
-        <button onClick={this.onFifteen}>15</button>
-        <button onClick={this.onTen}>10</button>
-        <button onClick={this.onFive}>5</button>
+        <button onClick={this.handleTimeChange}>5</button>
+        <button onClick={this.handleTimeChange}>10</button>
+        <button onClick={this.handleTimeChange}>15</button>
 
       </div>
     );
