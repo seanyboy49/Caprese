@@ -1,4 +1,5 @@
 import React from 'react';
+import SetTimeButton from './SetTimeButton'
 
 var Timer = React.createClass({
   getInitialState: function() {
@@ -9,11 +10,11 @@ var Timer = React.createClass({
     }
   },
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.interval = setInterval(this.onTick, 100);
   },
 
-  componentWillUnmount: function() {
+  componentWillUnmount() {
     clearInterval(this.interval);
   },
   onFifteen: function() {
@@ -87,6 +88,8 @@ var Timer = React.createClass({
         <button onClick={this.onFifteen}>15</button>
         <button onClick={this.onTen}>10</button>
         <button onClick={this.onFive}>5</button>
+
+        <SetTimeButton time="15"></SetTimeButton>
 
       </div>
     );
