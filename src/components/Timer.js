@@ -1,39 +1,53 @@
 import React from 'react';
 import '../styles/app.css'
 
-var Timer = React.createClass({
-  getInitialState: function() {
-    return {
+class Timer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
       running: false,
       timeRemaining: 1500000,
-      previousTime: 0,
+      previousTime: 0
     }
-  },
+
+    this.onTick = this.onTick.bind(this);
+    this.onStart = this.onStart.bind(this);
+    this.onStop = this.onStop.bind(this);
+    this.onReset = this.onReset.bind(this);
+    this.onFive = this.onFive.bind(this);
+    this.onTen = this.onTen.bind(this);
+    this.onFifteen = this.onFifteen.bind(this);
+  }
 
   componentDidMount() {
     this.interval = setInterval(this.onTick, 100);
-  },
+  }
 
   componentWillUnmount() {
     clearInterval(this.interval);
-  },
-  onFifteen: function() {
-    console.log(this)
+  }
+
+  onFifteen() {
     this.setState({
       timeRemaining: 900000
     })
-  },
-  onTen: function() {
+  }
+
+  onTen() {
+    console.log(this)
     this.setState({
       timeRemaining: 600000
     })
-  },
-  onFive: function() {
+  }
+
+  onFive() {
     this.setState({
       timeRemaining: 300000
     })
-  },
-  onTick: function() {
+  }
+
+  onTick() {
     if (this.state.running && this.state.timeRemaining > 500) {
       const now = Date.now();
       this.setState({
@@ -42,28 +56,28 @@ var Timer = React.createClass({
       });
     }
     console.log('onTick');
-  },
+  }
 
-  onStart: function() {
+  onStart() {
     this.setState({
       running: true,
       previousTime: Date.now(),
     });
-  },
+  }
 
-  onStop: function() {
+  onStop() {
     this.setState({ running: false });
-  },
+  }
 
-  onReset: function() {
+  onReset() {
     this.setState({
       running: false,
-      timeRemaining: this.state.timeRemaining,
+      timeRemaining: 1500000,
       previousTime: Date.now()
     });
-  },
+  }
 
-  render: function() {
+  render() {
     const seconds = Math.floor(this.state.timeRemaining / 1000);
     const actualSeconds = seconds % 60
     const minutes = Math.floor(seconds / 60)
@@ -93,6 +107,6 @@ var Timer = React.createClass({
       </div>
     );
   }
-});
+};
 
 export default Timer;
