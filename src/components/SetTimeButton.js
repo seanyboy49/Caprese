@@ -6,4 +6,4 @@ const SetTimeButton = props => {
     )
 }
 
-module.exports = SetTimeButton
+export default SetTimeButton

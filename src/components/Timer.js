@@ -1,5 +1,5 @@
 import React from 'react';
-import SetTimeButton from './SetTimeButton'
+import '../styles/app.css'
 
 var Timer = React.createClass({
   getInitialState: function() {
@@ -18,6 +18,7 @@ var Timer = React.createClass({
     clearInterval(this.interval);
   },
   onFifteen: function() {
+    console.log(this)
     this.setState({
       timeRemaining: 900000
     })
@@ -88,8 +89,6 @@ var Timer = React.createClass({
         <button onClick={this.onFifteen}>15</button>
         <button onClick={this.onTen}>10</button>
         <button onClick={this.onFive}>5</button>
-
-        <SetTimeButton time="15"></SetTimeButton>
 
       </div>
     );
