@@ -5,12 +5,11 @@ class Navigation extends React.Component{
   render() {
     return(
       <div>
-        <h1>Muhhfucking Nav Bar!</h1>
-        <ul role="nav">
-          <li><Link to="/pomodoro">Pomodoro</Link></li>
-          <li><Link to="/tags">Tags</Link></li>
-          <li><Link to="/log">Logs</Link></li>
-        </ul>
+        <div className="nav-bar">
+            <div className="panel"><Link to="/pomodoro">Pomodoro</Link></div>
+            <div className="panel"><Link to="/tags">Tags</Link></div>
+            <div className="panel"><Link to="/log">Logs</Link></div>
+        </div>
         {this.props.children}
       </div>
     )

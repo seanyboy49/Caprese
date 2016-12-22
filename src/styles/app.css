@@ -29,3 +29,23 @@
   margin-top: 30%;
   float: none;
 }
+
+/*Navigation*/
+.nav-bar{
+  height: 100px;
+  background-size: cover;
+  display: flex;
+}
+
+.panel {
+  text-align: center;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  list-style-type: none;
+}
