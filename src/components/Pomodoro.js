@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/app.css'
 
-class Timer extends React.Component {
+class Pomodoro extends React.Component {
   constructor(props) {
     super(props);
 
@@ -96,4 +96,4 @@ class Timer extends React.Component {
   }
 };
 
-export default Timer;
+export default Pomodoro;
