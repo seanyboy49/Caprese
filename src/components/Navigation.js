@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Navigation.css'
 import { Link } from 'react-router'
 
 class Navigation extends React.Component{

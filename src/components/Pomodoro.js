@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/app.css'
+import '../styles/Pomodoro.css'
 
 class Pomodoro extends React.Component {
   constructor(props) {
@@ -70,8 +70,9 @@ class Pomodoro extends React.Component {
     const minutes = Math.floor(seconds / 60)
 
     return (
-      <div>
-        <h2>Caprese</h2>
+      <div className="pomodoro">
+
+        <h1 className="header">Caprese</h1>
         { this.state.running ?
           <div onClick={this.onStop} className="timer timer-running">
             <div className="stopwatch-time"><h1 className="seconds">{minutes}</h1>minutes</div>
@@ -86,6 +87,7 @@ class Pomodoro extends React.Component {
 
           </div>
         }
+
         <button onClick={this.onReset}>Reset</button>
         <button onClick={this.handleTimeChange}>5</button>
         <button onClick={this.handleTimeChange}>10</button>
