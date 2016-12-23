@@ -87,12 +87,12 @@ class Pomodoro extends React.Component {
 
           </div>
         }
-
-        <button onClick={this.onReset}>Reset</button>
-        <button onClick={this.handleTimeChange}>5</button>
-        <button onClick={this.handleTimeChange}>10</button>
-        <button onClick={this.handleTimeChange}>15</button>
-
+        <div className="time-options">
+          <button onClick={this.onReset}>Reset</button>
+          <button onClick={this.handleTimeChange}>5</button>
+          <button onClick={this.handleTimeChange}>10</button>
+          <button onClick={this.handleTimeChange}>15</button>
+        </div>
       </div>
     );
   }

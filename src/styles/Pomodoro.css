@@ -1,9 +1,17 @@
 /*Pomodoro*/
 .pomodoro {
-  display: flex;
   max-width: 500px;
   margin: 0 auto;
   align-items: center;
+}
+
+.header{
+  text-align: center;
+  width: 200px;
+}
+
+.pomodoro * {
+  margin: 0 auto;
 }
 
 .tomato {
@@ -40,4 +48,10 @@
   vertical-align: middle;
   margin-top: 30%;
   float: none;
+}
+
+.time-options {
+  margin-top: 10%;
+  display: flex;
+
 }
