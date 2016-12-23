@@ -67,13 +67,20 @@ class Pomodoro extends React.Component {
   render() {
     const seconds = Math.floor(this.state.timeRemaining / 1000);
     let actualSeconds = seconds % 60
-    const minutes = Math.floor(seconds / 60)
+    let minutes = Math.floor(seconds / 60)
+    
+    function formatMinutes() {
+      if (minutes < 10) {
+        minutes = `0${minutes}`
+      }
+    }
     function formatSeconds() {
-      if (actualSeconds === 0) {
-        actualSeconds += '0'
+      if (actualSeconds < 10) {
+        actualSeconds = `0${actualSeconds}`
       }
     }
     formatSeconds();
+    formatMinutes();
 
     return (
       <div className="pomodoro">
