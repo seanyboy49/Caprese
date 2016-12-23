@@ -66,8 +66,14 @@ class Pomodoro extends React.Component {
 
   render() {
     const seconds = Math.floor(this.state.timeRemaining / 1000);
-    const actualSeconds = seconds % 60
+    let actualSeconds = seconds % 60
     const minutes = Math.floor(seconds / 60)
+    function formatSeconds() {
+      if (actualSeconds === 0) {
+        actualSeconds += '0'
+      }
+    }
+    formatSeconds();
 
     return (
       <div className="pomodoro">
@@ -75,18 +81,17 @@ class Pomodoro extends React.Component {
         <h1 className="header">Caprese</h1>
         { this.state.running ?
           <div onClick={this.onStop} className="timer timer-running">
-            <div className="stopwatch-time"><h1 className="seconds">{minutes}</h1>minutes</div>
-            <div className="stopwatch-time"><h1 className="seconds">{actualSeconds}</h1>seconds</div>
-
+            <div className="stopwatch-time"><h1 className="minutes">{minutes}:</h1></div>
+            <div className="stopwatch-time"><h1 className="seconds">{actualSeconds}</h1></div>
           </div>
           :
           <div onClick={this.onStart} className="timer timer-stopped">
-            <div className="stopwatch-time"><h1 className="minutes">{minutes}</h1>M</div>
-            <br></br>
-            <div className="stopwatch-time"><h1 className="seconds">{actualSeconds}</h1>S</div>
+            <div className="stopwatch-time"><h1 className="minutes">{minutes}:</h1></div>
+            <div className="stopwatch-time"><h1 className="seconds">{actualSeconds}</h1></div>
 
           </div>
         }
+
         <div className="time-options">
           <button onClick={this.onReset}>Reset</button>
           <button onClick={this.handleTimeChange}>5</button>
