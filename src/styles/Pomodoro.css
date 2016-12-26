@@ -19,10 +19,10 @@
   margin: 0 auto;
 }
 .timer {
-  background-color: #CA0F08;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  background-image: url('../../public/img/tomato_Kawaii.svg');
+  background-repeat: no-repeat;
+  width: 189px;
+  height: 189px;
   text-align: center
 }
 
