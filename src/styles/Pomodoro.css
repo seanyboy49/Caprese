@@ -21,8 +21,8 @@
 .timer {
   background-image: url('../../public/img/tomato_Kawaii.svg');
   background-repeat: no-repeat;
-  width: 189px;
-  height: 189px;
+  width: 250px;
+  height: 250px;
   text-align: center
 }
 
@@ -36,12 +36,19 @@
 }*/
 
 .timer-running {
-  background-color: #FA0F07;
+  background-image: url('../../public/img/tomato_Kawaii_Concerned.svg');
+  background-repeat: no-repeat;
+  width: 250px;
+  height: 250px;
+  text-align: center
 }
 
-.time-stopped {
-  background-color: #CA0F08;
-}
+.timer-stopped {
+  background-image: url('../../public/img/tomato_Kawaii.svg');
+  background-repeat: no-repeat;
+  width: 250px;
+  height: 250px;
+  text-align: center}
 
 .stopwatch-time {
   display: inline-block;

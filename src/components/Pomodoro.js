@@ -68,7 +68,7 @@ class Pomodoro extends React.Component {
     const seconds = Math.floor(this.state.timeRemaining / 1000);
     let actualSeconds = seconds % 60
     let minutes = Math.floor(seconds / 60)
-    
+
     function formatMinutes() {
       if (minutes < 10) {
         minutes = `0${minutes}`
@@ -88,14 +88,11 @@ class Pomodoro extends React.Component {
         <h1 className="header">Caprese</h1>
         { this.state.running ?
           <div onClick={this.onStop} className="timer timer-running">
-            <div className="stopwatch-time"><h1 className="minutes">{minutes}:</h1></div>
-            <div className="stopwatch-time"><h1 className="seconds">{actualSeconds}</h1></div>
+            <div className="stopwatch-time"><h1>{minutes}:{actualSeconds}</h1></div>
           </div>
           :
           <div onClick={this.onStart} className="timer timer-stopped">
-            <div className="stopwatch-time"><h1 className="minutes">{minutes}:</h1></div>
-            <div className="stopwatch-time"><h1 className="seconds">{actualSeconds}</h1></div>
-
+            <div className="stopwatch-time"><h1>{minutes}:{actualSeconds}</h1></div>
           </div>
         }
 
