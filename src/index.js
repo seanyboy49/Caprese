@@ -12,6 +12,6 @@ ReactDOM.render(
     <IndexRoute component={Pomodoro}/>
       <Route path="/pomodoro" component={Pomodoro} />
       <Route path="/tags" component={Tags} />
-      <Route path="/logs" component={Tags} />
+      <Route path="/logs" component={Logs} />
     </Route>
   </Router>, document.getElementById('app'));

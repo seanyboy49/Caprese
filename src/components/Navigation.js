@@ -9,7 +9,7 @@ class Navigation extends React.Component{
         <div className="nav-bar">
             <div className="panel"><Link to="/pomodoro">Pomodoro</Link></div>
             <div className="panel"><Link to="/tags">Tags</Link></div>
-            <div className="panel"><Link to="/log">Logs</Link></div>
+            <div className="panel"><Link to="/logs">Logs</Link></div>
         </div>
         {this.props.children}
       </div>
