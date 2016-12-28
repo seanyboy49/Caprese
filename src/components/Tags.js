@@ -17,24 +17,22 @@ class Tags extends React.Component{
       return tag.name.match(regex)
     })
   }
-  handleNewTag() {
-    console.log("Handling new tag")
+  handleNewTag(e) {
+    const newTag = e.target.children[0].value
+    
   }
   displayMatches(e) {
+    console.log(e.target)
     const suggestions = document.querySelector('.suggestions');
     const matchArray = this.findMatches(e.target.value, this.state.tags)
 
-    if (matchArray.length === 0) {
-    }
-    else {
-      const html = matchArray.map(obj => {
-        const tagName = obj.name
-        return `
-          <div class="tag-container">${tagName}</div>
-        `;
-      }).join('');
-      suggestions.innerHTML = html
-    }
+    const html = matchArray.map(obj => {
+      const tagName = obj.name
+      return `
+        <div class="tag-container">${tagName}</div>
+      `;
+    }).join('');
+    suggestions.innerHTML = html
   }
   componentWillMount() {
     const tags = []
