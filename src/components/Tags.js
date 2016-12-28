@@ -9,6 +9,7 @@ class Tags extends React.Component{
     }
     this.displayMatches = this.displayMatches.bind(this);
     this.findMatches = this.findMatches.bind(this);
+    this.handleNewTag = this.handleNewTag.bind(this);
   }
   findMatches(wordToMatch, tags) {
     return tags.filter(tag => {
@@ -16,18 +17,24 @@ class Tags extends React.Component{
       return tag.name.match(regex)
     })
   }
-
+  handleNewTag() {
+    console.log("Handling new tag")
+  }
   displayMatches(e) {
     const suggestions = document.querySelector('.suggestions');
     const matchArray = this.findMatches(e.target.value, this.state.tags)
-    matchArray.forEach(obj => console.log(obj))
-    const html = matchArray.map(obj => {
-      const tagName = obj.name
-      return `
-        <div class="tag-container">${tagName}</div>
-      `;
-    }).join('');
-    suggestions.innerHTML = html
+
+    if (matchArray.length === 0) {
+    }
+    else {
+      const html = matchArray.map(obj => {
+        const tagName = obj.name
+        return `
+          <div class="tag-container">${tagName}</div>
+        `;
+      }).join('');
+      suggestions.innerHTML = html
+    }
   }
   componentWillMount() {
     const tags = []
@@ -41,7 +48,7 @@ class Tags extends React.Component{
     return (
       <div>
         <h1>Tags</h1>
-        <form className="search-form">
+      <form className="search-form" onSubmit={this.handleNewTag}>
           <input type="text" className="search" placeholder="Search for a tag"/>
         </form>
         <div className="suggestions">
