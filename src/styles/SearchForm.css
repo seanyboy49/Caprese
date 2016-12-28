@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+}
+.search-form {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.tag-container {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #e74c3c;
+  text-align: center;
+  align-content: center;
+}
