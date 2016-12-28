@@ -7,9 +7,9 @@ h1 {
 }
 
 .tag-container {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
+  height: 50px;
+  width: 200px;
+  border-radius: 10%;
   background-color: #e74c3c;
   text-align: center;
   align-content: center;
