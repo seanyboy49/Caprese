@@ -24,9 +24,14 @@ class Tags extends React.Component{
     $.ajax({
       url: 'http://localhost:3001/tags',
       method: 'post',
-      data: {tag: {name: newTag}}
+      data: {tag: {name: newTag}},
+      success: (response) => {
+        const newState = this.state.tags.concat(response)
+        console.log(newState)
+        this.setState({tags: newState})
+        console.log('It worked!', response)
+      }
     })
-
   }
   displayMatches(e) {
     console.log(e.target)
