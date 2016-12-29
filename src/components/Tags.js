@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery'
 import '../styles/SearchForm.css'
 
 class Tags extends React.Component{
@@ -9,6 +10,7 @@ class Tags extends React.Component{
     }
     this.displayMatches = this.displayMatches.bind(this);
     this.findMatches = this.findMatches.bind(this);
+    this.handleNewTag = this.handleNewTag.bind(this);
   }
   findMatches(wordToMatch, tags) {
     return tags.filter(tag => {
@@ -16,15 +18,30 @@ class Tags extends React.Component{
       return tag.name.match(regex)
     })
   }
-
+  handleNewTag(e) {
+    const newTag = e.target.children[0].value
+    console.log(newTag)
+    $.ajax({
+      url: 'http://localhost:3001/tags',
+      method: 'post',
+      data: {tag: {name: newTag}},
+      success: (response) => {
+        const newState = this.state.tags.concat(response)
+        console.log(newState)
+        this.setState({tags: newState})
+        console.log('It worked!', response)
+      }
+    })
+  }
   displayMatches(e) {
+    console.log(e.target)
     const suggestions = document.querySelector('.suggestions');
     const matchArray = this.findMatches(e.target.value, this.state.tags)
-    matchArray.forEach(obj => console.log(obj))
+
     const html = matchArray.map(obj => {
       const tagName = obj.name
       return `
-        <div class="tag-container">${tagName}</div>
+        <div key=${obj.id} class="tag-container">${tagName}</div>
       `;
     }).join('');
     suggestions.innerHTML = html
@@ -41,7 +58,7 @@ class Tags extends React.Component{
     return (
       <div>
         <h1>Tags</h1>
-        <form className="search-form">
+      <form className="search-form" onSubmit={this.handleNewTag}>
           <input type="text" className="search" placeholder="Search for a tag"/>
         </form>
         <div className="suggestions">
