@@ -27,7 +27,6 @@ class Tags extends React.Component{
       data: {tag: {name: newTag}},
       success: (response) => {
         const newState = this.state.tags.concat(response)
-        console.log(newState)
         this.setState({tags: newState})
         console.log('It worked!', response)
       }
