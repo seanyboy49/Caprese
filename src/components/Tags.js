@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery'
 import '../styles/SearchForm.css'
 
 class Tags extends React.Component{
@@ -19,7 +20,13 @@ class Tags extends React.Component{
   }
   handleNewTag(e) {
     const newTag = e.target.children[0].value
-    
+    console.log(newTag)
+    $.ajax({
+      url: 'http://localhost:3001/tags',
+      method: 'post',
+      data: {tag: {name: newTag}}
+    })
+
   }
   displayMatches(e) {
     console.log(e.target)
@@ -29,7 +36,7 @@ class Tags extends React.Component{
     const html = matchArray.map(obj => {
       const tagName = obj.name
       return `
-        <div class="tag-container">${tagName}</div>
+        <div key=${obj.id} class="tag-container">${tagName}</div>
       `;
     }).join('');
     suggestions.innerHTML = html
