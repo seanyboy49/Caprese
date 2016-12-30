@@ -42,7 +42,7 @@ class Pomodoro extends React.Component {
         timeRemaining: this.state.timeRemaining - (now - this.state.previousTime),
       });
     }
-    console.log('onTick');
+    // console.log('onTick');
   }
 
   onStart() {
