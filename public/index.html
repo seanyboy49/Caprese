@@ -29,6 +29,8 @@
         // Full docs on the response object can be found in the documentation
         // for FB.getLoginStatus().
         if (response.status === 'connected') {
+          console.log(response.authResponse.accessToken);
+
           // Logged into your app and Facebook.
           testAPI();
         } else if (response.status === 'not_authorized') {
@@ -76,7 +78,7 @@
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
       });
-      
+
 
       };
 
@@ -110,7 +112,7 @@
 
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
     </fb:login-button>
-    <button onclick="FB.logout()">Logout </button>
+    <button onclick="FB.logout();">Logout </button>
 
     <div id="status">
     </div>
