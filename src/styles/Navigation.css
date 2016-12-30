@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
 /*Navigation*/
+a {
+  color: black;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .nav-bar{
   height: 100px;
   background-size: cover;
