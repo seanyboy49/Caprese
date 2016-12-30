@@ -46,7 +46,6 @@ class Tags extends React.Component{
     suggestions.innerHTML = html
   }
   componentWillMount() {
-    const tags = []
     fetch('http://localhost:3001/tags').then(blob => blob.json()).then(data => this.setState({tags: data.data}))
   }
   componentDidMount() {
