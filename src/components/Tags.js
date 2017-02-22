@@ -47,7 +47,7 @@ class Tags extends React.Component{
   }
   componentWillMount() {
     const tags = []
-    fetch('http://localhost:3001/tags').then(blob => blob.json()).then(data => this.setState({tags: data.data}))
+    fetch('http://localhost:3000/tags').then(blob => blob.json()).then(data => this.setState({tags: data.data}))
   }
   componentDidMount() {
     const searchInput = document.querySelector('.search');
