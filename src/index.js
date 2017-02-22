@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import Tags from './components/Tags'
 import Logs from './components/Logs'
 
+
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Navigation}>
