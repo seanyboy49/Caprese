@@ -1,6 +1,9 @@
 import React from 'react';
 import '../styles/Pomodoro.css'
 
+import LoginForm from './Login-Form';
+import SignoutForm from './Signout-Form';
+
 class Pomodoro extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +22,7 @@ class Pomodoro extends React.Component {
   }
 
   componentDidMount() {
+    console.log('this.props', this.props);
     this.interval = setInterval(this.onTick, 100);
   }
 
@@ -83,28 +87,36 @@ class Pomodoro extends React.Component {
     formatMinutes();
 
     return (
-      <div className="pomodoro">
+      <div>
+        <div className="pomodoro">
 
-        <h1 className="header">Caprese</h1>
-        { this.state.running ?
-          <div onClick={this.onStop} className="timer timer-running">
-            <div className="stopwatch-time"><h1>{minutes}:{actualSeconds}</h1></div>
-          </div>
-          :
-          <div onClick={this.onStart} className="timer timer-stopped">
-            <div className="stopwatch-time"><h1>{minutes}:{actualSeconds}</h1></div>
-          </div>
-        }
+          <h1 className="header">Caprese</h1>
+          { this.state.running ?
+            <div onClick={this.onStop} className="timer timer-running">
+              <div className="stopwatch-time"><h1>{minutes}:{actualSeconds}</h1></div>
+            </div>
+            :
+            <div onClick={this.onStart} className="timer timer-stopped">
+              <div className="stopwatch-time"><h1>{minutes}:{actualSeconds}</h1></div>
+            </div>
+          }
 
-        <div className="time-options">
-          <button onClick={this.onReset}>Reset</button>
-          <button onClick={this.handleTimeChange}>5</button>
-          <button onClick={this.handleTimeChange}>10</button>
-          <button onClick={this.handleTimeChange}>15</button>
+          <div className="time-options">
+            <button onClick={this.onReset}>Reset</button>
+            <button onClick={this.handleTimeChange}>5</button>
+            <button onClick={this.handleTimeChange}>10</button>
+            <button onClick={this.handleTimeChange}>15</button>
+          </div>
         </div>
+        <LoginForm />
+        <SignoutForm />
       </div>
     );
   }
 };
+
+Pomodoro.defaultProps = {
+  user: {}
+}
 
 export default Pomodoro;
