@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/Pomodoro.css'
 
 import LoginForm from './Login-Form';
+import SignoutForm from './Signout-Form';
 
 class Pomodoro extends React.Component {
   constructor(props) {
@@ -108,7 +109,7 @@ class Pomodoro extends React.Component {
           </div>
         </div>
         <LoginForm />
-
+        <SignoutForm />
       </div>
     );
   }
